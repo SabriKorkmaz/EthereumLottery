@@ -110,9 +110,9 @@ export default function Home() {
                 </div>
             </main>
 
-      <footer className={styles.footer}>
-          <p> Created By Sabri Korkmaz</p>
-      </footer>
-    </div>
-  )
+            <footer className={styles.footer}>
+                <p> Created By Sabri Korkmaz</p>
+            </footer>
+        </div>
+    )
 }
