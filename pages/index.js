@@ -3,12 +3,21 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import "bulma/css/bulma.css"
 import Web3 from "web3";
+import {useState} from 'react';
 
 export default function Home() {
 
+    const [web3Context, setWeb3Context] = useState();
+    const [accountList, setAccountList] = useState()
     const getWallet = async () => {
         if (metaMaskFailed()) return;
         await window.ethereum.request({method: "eth_requestAccounts"})
+
+        const ethereumContext = new Web3(window.ethereum);
+        setWeb3Context(ethereumContext);
+
+        const accountList = await web3Context.eth.getAccounts();
+        setAccountList(accountList[0]);
     }
 
 
