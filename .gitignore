@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/contract/node_modules/
+/contract/env
+
 /.pnp
 .pnp.js
 
@@ -11,6 +14,7 @@
 # next.js
 /.next/
 /out/
+/contract/.env
 
 # production
 /build
