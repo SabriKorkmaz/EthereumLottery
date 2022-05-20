@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Migrations {
+contract EthereumLottery {
 
     address payable[] public players;
     mapping(uint => address payable) public history;
@@ -10,10 +10,10 @@ contract Migrations {
 
     constructor(){
         currentLotteryIndex = 1;
-        owner = msg.sender;
+        admin = msg.sender;
     }
 
-    function apply() public payable {
+    function enter() public payable {
         require(msg.value > .01 ether);
         players.push(payable(msg.sender));
     }
@@ -34,17 +34,17 @@ contract Migrations {
         require(players.length >= 3, "Not enough players participating in the lottery");
 
         address payable winner;
-
-        winner = players[random() % players.length];
+        uint winnerIndex = random() % players.length;
+        winner = players[winnerIndex];
         winner.transfer(getBalance());
 
-        history[currentLotteryIndex] = players[winner];
+        history[currentLotteryIndex] = players[winnerIndex];
         currentLotteryIndex++;
 
         players = new address payable[](0);
     }
 
     function getWinnerByLottery(uint lottery) public view returns (address payable) {
-        return lotteryHistory[lottery];
+        return history[lottery];
     }
 }
