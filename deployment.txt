@@ -1,2 +1,4 @@
 truffle migrate --network rinkeby
 https://infura.io/dashboard/ethereum
+0x2a8600E1b25A7D62c3084941f06a5a9D316BcbA9
+---contract URI https://rinkeby.etherscan.io/address/0x2a8600E1b25A7D62c3084941f06a5a9D316BcbA9

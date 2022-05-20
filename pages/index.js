@@ -3,6 +3,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import "bulma/css/bulma.css"
 import Web3 from "web3";
+import ethereumLotteryContract from "../vendor/main";
+
+
 import {useState} from 'react';
 
 export default function Home() {
