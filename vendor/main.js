@@ -10,10 +10,30 @@ const ethereumLotteryAbi = [{"inputs": [], "stateMutability": "nonpayable", "typ
     "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
     "stateMutability": "view",
     "type": "function"
+}, {
+    "inputs": [],
+    "name": "endLottery",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
 }, {"inputs": [], "name": "enter", "outputs": [], "stateMutability": "payable", "type": "function"}, {
     "inputs": [],
     "name": "getBalance",
     "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{"internalType": "uint256", "name": "index", "type": "uint256"}],
+    "name": "getLotteryHistory",
+    "outputs": [{"internalType": "address", "name": "", "type": "address"}, {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }, {"internalType": "uint256", "name": "", "type": "uint256"}, {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
     "stateMutability": "view",
     "type": "function"
 }, {
@@ -23,22 +43,24 @@ const ethereumLotteryAbi = [{"inputs": [], "stateMutability": "nonpayable", "typ
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [{"internalType": "uint256", "name": "lottery", "type": "uint256"}],
-    "name": "getWinnerByLottery",
-    "outputs": [{"internalType": "address payable", "name": "", "type": "address"}],
+    "inputs": [],
+    "name": "getTimeLeft",
+    "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
     "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
     "name": "history",
-    "outputs": [{"internalType": "address payable", "name": "", "type": "address"}],
+    "outputs": [{"internalType": "address payable", "name": "winner", "type": "address"}, {
+        "internalType": "uint256",
+        "name": "date",
+        "type": "uint256"
+    }, {"internalType": "uint256", "name": "totalParticipant", "type": "uint256"}, {
+        "internalType": "uint256",
+        "name": "totalBalance",
+        "type": "uint256"
+    }],
     "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pickWinner",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
@@ -47,11 +69,10 @@ const ethereumLotteryAbi = [{"inputs": [], "stateMutability": "nonpayable", "typ
     "stateMutability": "view",
     "type": "function"
 }]
-
 const ethereumLotteryContract = web3 => {
     return new web3.eth.Contract(
         ethereumLotteryAbi,
-        "0x2a8600E1b25A7D62c3084941f06a5a9D316BcbA9"
+        "0xe5133595C0dcc2d8488b8225a28a101f37dE5449"
     )
 }
 
